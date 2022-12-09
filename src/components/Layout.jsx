@@ -1,10 +1,25 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { Link, Outlet } from "react-router-dom";
 
 const Layout = () => {
+    const [bollean,  setBollean] = useState(false)
     const none = (block) => {
         block.style.display = "none"
+        setBollean(true)
     }
+    useEffect(() => {
+        let header = document.querySelector("header")
+        let container = document.querySelector(".container")
+        if(bollean) {
+            header.style.width = "85.5%"
+            header.style.left = "58.5%"
+            container.style.width = "1550px"
+            container.style.left = "58%"
+        }
+    } )
+    console.log(bollean);
     return ( 
         <div className="layout">
             <div className="left">
